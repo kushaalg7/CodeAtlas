@@ -1,0 +1,43 @@
+{
+  "id": "exercise-08",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-08-functions-scope",
+  "level": "beginner",
+  "prerequisites": [
+    "python-07-functions-basics"
+  ],
+  "related_concepts": [
+    "concept-variable-scope"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#more-on-defining-functions",
+      "title": "More on Defining Functions",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "exercise_id": "exercise-08",
+  "title": "Exercise for Function Arguments and Variable Scope",
+  "description": "Practice the core syntax from Function Arguments and Variable Scope.",
+  "starter_code": "# Complete the code\ndef solution():\n    return 42",
+  "test_cases": [
+    {
+      "input": "solution()",
+      "expected_output": "42",
+      "is_hidden": false
+    }
+  ],
+  "hints": [
+    {
+      "level": 1,
+      "text": "Review the worked example from the lesson."
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "language": "javascript",
+  "versions_supported": ["ES2022", "ES2023", "ES2024"],
+  "tier": "Tier B",
+  "doc_base_urls": ["https://developer.mozilla.org/en-US/docs/Web/JavaScript"],
+  "maintainers": ["codemind-team@example.com"]
+}

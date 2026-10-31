@@ -1,0 +1,29 @@
+{
+  "id": "mistake-indentation-tab-space",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-01-syntax-and-execution",
+  "level": "beginner",
+  "prerequisites": ["python-01-syntax-and-execution"],
+  "related_concepts": ["concept-indentation"],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/reference/lexical_analysis.html#indentation",
+      "title": "Python Reference: Indentation",
+      "source_type": "official_spec",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "incorrect_code": "def greet():\n    print('Hello')\n\tprint('World')",
+  "actual_error": "TabError: inconsistent use of tabs and spaces in indentation",
+  "why_it_happens": "Mixing tabs and spaces confuses the Python lexical analyzer when computing indentation column levels.",
+  "corrected_code": "def greet():\n    print('Hello')\n    print('World')",
+  "expected_behaviour": "Both print statements share identical 4-space indentation and execute in sequence.",
+  "severity": "syntax",
+  "how_to_spot_it": "Configure your editor to render invisible whitespace characters and enable 'convert tabs to spaces'."
+}

@@ -1,0 +1,42 @@
+{
+  "id": "syntax-for-loop",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-06-loops",
+  "level": "beginner",
+  "prerequisites": ["python-01-syntax-and-execution", "python-02-variables-and-types"],
+  "related_concepts": ["concept-iteration", "concept-sequences"],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/reference/compound_stmts.html#the-for-statement",
+      "title": "Python 3 Reference: The for statement",
+      "source_type": "official_spec",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "for loop statement",
+  "official_syntax": "for_stmt ::= 'for' target_list 'in' starred_list ':' suite ['else' ':' suite]",
+  "explanation_simple": "A loop repeats an action for each item in a collection or number range.",
+  "explanation_technical": "Executes a block of code once for each element in the iterator provided by the target expression.",
+  "components_or_parameters": [
+    {
+      "name": "target_list",
+      "description": "Variable or unpacked tuple receiving each item from the iterator."
+    },
+    {
+      "name": "starred_list",
+      "description": "Iterable object evaluated once at loop entry."
+    }
+  ],
+  "example": "for i in range(3):\n    print(i)",
+  "expected_output": "0\n1\n2\n",
+  "output_is_deterministic": true,
+  "common_mistakes": ["mistake-for-loop-mutation"],
+  "version_compatibility": "Python 3.0+",
+  "use_cases": ["Iterating through sequences", "Counting ranges", "Accumulating results"]
+}

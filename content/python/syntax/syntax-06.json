@@ -1,0 +1,47 @@
+{
+  "id": "syntax-06",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-06-loops",
+  "level": "beginner",
+  "prerequisites": [
+    "python-05-conditions"
+  ],
+  "related_concepts": [
+    "concept-iteration"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#for-statements",
+      "title": "for Statements",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "Loops: while and for with range() Construct",
+  "official_syntax": "for i in range(start, stop, step):\n    suite",
+  "explanation_simple": "Loops let a computer do repetitive chores tirelessly. A for loop repeats for every number in a range.",
+  "explanation_technical": "for loops call iter() on the target to obtain an iterator, invoking next() on each iteration until StopIteration is raised.",
+  "components_or_parameters": [
+    {
+      "name": "expression",
+      "description": "Evaluated target",
+      "is_optional": false
+    }
+  ],
+  "example": "total = 0\nfor i in range(1, 4):\n    total += i\nprint(total)",
+  "expected_output": "6\n",
+  "output_is_deterministic": true,
+  "common_mistakes": [
+    "mistake-06"
+  ],
+  "version_compatibility": "Python 3.0+",
+  "use_cases": [
+    "Fundamental programming operations"
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "id": "topic-draft-blocked",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "topic-draft-blocked",
+  "level": "beginner",
+  "prerequisites": [],
+  "related_concepts": [],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3.12/",
+      "title": "Docs",
+      "source_type": "official_docs"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "draft",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Draft Topic",
+  "learning_objectives": ["test"],
+  "prerequisites_check": [],
+  "explanation_simple": "test",
+  "explanation_technical": "test",
+  "syntax": "x = 1",
+  "worked_examples": [
+    {
+      "id": "we-1",
+      "title": "test",
+      "code": "print(1)",
+      "expected_output": "1\n",
+      "line_by_line": []
+    }
+  ],
+  "predict_the_output": [],
+  "common_mistake_ids": [],
+  "practice_exercise_ids": [],
+  "quiz_ids": ["q-1"],
+  "summary": "test",
+  "what_to_learn_next": []
+}

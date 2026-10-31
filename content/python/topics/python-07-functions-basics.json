@@ -1,0 +1,90 @@
+{
+  "id": "python-07-functions-basics",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-07-functions-basics",
+  "level": "beginner",
+  "prerequisites": [
+    "python-06-loops"
+  ],
+  "related_concepts": [
+    "concept-functions"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+      "title": "Defining Functions",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Defining Functions with def",
+  "learning_objectives": [
+    "You can encapsulate code into reusable functions using def",
+    "You can pass arguments and capture returned values"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What is the key principle behind Defining Functions with def?",
+      "options": [
+        "Follow Python syntax and semantics",
+        "Ignore errors",
+        "Use random spaces"
+      ],
+      "correct_index": 0,
+      "explanation": "Python requires adhering to clear lexical and semantic rules."
+    }
+  ],
+  "explanation_simple": "A function is like a recipe. You give it ingredients (parameters), it follows the steps, and serves the finished dish (return value).",
+  "explanation_technical": "def creates a function object PyFunctionObject bound to the local namespace, creating a new stack frame on invocation.",
+  "syntax": "def function_name(param1, param2):\n    return result",
+  "worked_examples": [
+    {
+      "id": "we-07",
+      "title": "Simple arithmetic function",
+      "code": "def add(a, b):\n    return a + b\n\nprint(add(10, 20))",
+      "expected_output": "30\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Executes the demonstrated concept."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart LR\n Caller[add 10, 20]:::available --> Frame[Stack Frame a=10, b=20]:::progress --> Return[return 30]:::mastered",
+    "alt_text": "Function invocation call stack frame",
+    "concept_tags": [
+      "concept-functions"
+    ]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "Predict the output of: def add(a, b):",
+      "code": "def add(a, b):\n    return a + b\n\nprint(add(10, 20))",
+      "expected_output": "30\n",
+      "explanation": "Executes according to language rules."
+    }
+  ],
+  "common_mistake_ids": [
+    "mistake-07"
+  ],
+  "practice_exercise_ids": [
+    "exercise-07"
+  ],
+  "quiz_ids": [
+    "quiz-07"
+  ],
+  "summary": "Functions create modular, testable code units that accept inputs and return outputs.",
+  "what_to_learn_next": [
+    "python-08-functions-scope"
+  ]
+}

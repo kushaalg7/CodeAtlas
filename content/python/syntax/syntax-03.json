@@ -1,0 +1,47 @@
+{
+  "id": "syntax-03",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-03-operators",
+  "level": "beginner",
+  "prerequisites": [
+    "python-02-variables-and-types"
+  ],
+  "related_concepts": [
+    "concept-operators"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/reference/expressions.html",
+      "title": "Expressions and Operators",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "Arithmetic, Comparison, and Logical Operators Construct",
+  "official_syntax": "result = a + b\nis_valid = x > 0 and y < 10",
+  "explanation_simple": "Operators are math and logic signs like plus, minus, equal to, and and/or, used to combine numbers and check conditions.",
+  "explanation_technical": "Operators invoke special dunder methods on operands (__add__, __eq__) with short-circuit evaluation semantics on and/or.",
+  "components_or_parameters": [
+    {
+      "name": "expression",
+      "description": "Evaluated target",
+      "is_optional": false
+    }
+  ],
+  "example": "total = 10 + 5 * 2\nis_teen = 15 >= 13 and 15 <= 19\nprint(total, is_teen)",
+  "expected_output": "20 True\n",
+  "output_is_deterministic": true,
+  "common_mistakes": [
+    "mistake-03"
+  ],
+  "version_compatibility": "Python 3.0+",
+  "use_cases": [
+    "Fundamental programming operations"
+  ]
+}

@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CODE ATLAS — Universal Programming Knowledge Centre</title>
+  <link rel="stylesheet" href="/styles/tokens.css">
+  <!-- Mermaid.js for rendering glowing diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    header.app-header {
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      padding: 14px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+    .logo-container { display: flex; align-items: center; gap: 14px; }
+    .logo-glow {
+      font-weight: 800;
+      font-size: 18px;
+      letter-spacing: -0.5px;
+      color: #f8fafc;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo-badge {
+      background: #2563eb;
+      color: #fff;
+      font-size: 11px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .tagline { color: #94a3b8; font-size: 13px; font-weight: 400; }
+    
+    /* Top Mode Tabs */
+    .mode-tab-bar {
+      display: flex;
+      gap: 8px;
+      max-width: 1440px;
+      margin: 16px auto 0 auto;
+      padding: 0 24px;
+    }
+    .mode-tab {
+      padding: 9px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      border: 1px solid transparent;
+      background: transparent;
+      color: #94a3b8;
+      transition: all 0.2s ease;
+    }
+    .mode-tab:hover {
+      color: #f8fafc;
+      background: rgba(255, 255, 255, 0.04);
+    }
+    .mode-tab.active {
+      background: #1e293b;
+      color: #f8fafc;
+      border-color: #334155;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    main.hub-container {
+      display: flex;
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 24px;
+      gap: 24px;
+    }
+    aside.hub-sidebar { width: 300px; flex-shrink: 0; }
+    .sidebar-inner {
+      position: sticky;
+      top: 80px;
+      background: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 14px;
+      max-height: calc(100vh - 110px);
+      overflow-y: auto;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+    }
+    .content-area { flex: 1; min-width: 0; }
+    .nav-list { list-style: none; padding: 0; margin: 0; }
+    .nav-link {
+      display: flex;
+      align-items: baseline;
+      padding: 8px 12px;
+      margin-bottom: 4px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #cbd5e1;
+      font-size: 13px;
+      transition: all 0.2s ease;
+      border-left: 3px solid transparent;
+    }
+    .nav-link:hover, .nav-link.active {
+      background: #1e293b;
+      color: #38bdf8;
+      border-left-color: #38bdf8;
+    }
+    .nav-letter { color: #f59e0b; font-weight: bold; margin-right: 8px; min-width: 18px; }
+    .panel {
+      background-color: #0f172a;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.15);
+    }
+    .code-editor-container {
+      display: flex;
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 6px;
+      overflow: hidden;
+      position: relative;
+      margin-top: 10px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .code-editor-container:focus-within {
+      border-color: #38bdf8;
+      box-shadow: 0 0 0 1px #38bdf8;
+    }
+    .code-editor {
+      width: 100%;
+      background: transparent;
+      color: #f1f5f9;
+      border: none;
+      outline: none;
+      padding: 12px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      resize: none;
+      tab-size: 4;
+      white-space: pre;
+      box-sizing: border-box;
+      margin: 0;
+    }
+    #code-line-gutter {
+      user-select: none;
+      padding: 12px 10px;
+      background: #060910;
+      border-right: 1px solid #1e293b;
+      color: #64748b;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.6;
+      text-align: right;
+      min-width: 44px;
+      box-sizing: border-box;
+      overflow: hidden;
+    }
+    .btn-action {
+      cursor: pointer;
+      padding: 9px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+    .btn-run {
+      background: #2563eb;
+      color: #ffffff;
+      border: 1px solid #3b82f6;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    }
+    .btn-run:hover {
+      background: #1d4ed8;
+      transform: translateY(-1px);
+    }
+    .btn-explain {
+      background: #1e293b;
+      color: #e2e8f0;
+      border: 1px solid #334155;
+    }
+    .btn-explain:hover {
+      background: #334155;
+      border-color: #475569;
+      transform: translateY(-1px);
+    }
+    .neon-tag {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .diagram-card {
+      background: #090d16;
+      border: 1px solid #1e293b;
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      overflow-x: auto;
+    }
+    .diagram-card svg {
+      filter: none;
+    }
+    .file-dropzone {
+      border: 1px dashed #334155;
+      background: rgba(30, 41, 59, 0.3);
+      border-radius: 6px;
+      padding: 14px;
+      text-align: center;
+      color: #94a3b8;
+      cursor: pointer;
+      margin-bottom: 12px;
+      font-size: 13px;
+      transition: all 0.2s;
+    }
+    .file-dropzone:hover {
+      border-color: #38bdf8;
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.05);
+    }
+    @media (max-width: 900px) {
+      main.hub-container { flex-direction: column; }
+      aside.hub-sidebar { width: 100%; }
+      .sidebar-inner { position: static; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="app-header" role="banner">
+    <div class="logo-container">
+      <a href="/" class="logo-glow">
+        <span>CODE ATLAS</span>
+        <span class="logo-badge">PRO</span>
+      </a>
+      <span class="tagline">Universal Programming Language Learning & Execution Architecture</span>
+    </div>
+    <div id="header-version-container">
+      <span class="neon-tag" style="background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25);">
+        Python 3.12 (Tier A Verified)
+      </span>
+    </div>
+  </header>
+
+  <!-- Navigation Mode Tabs -->
+  <div class="mode-tab-bar">
+    <div class="mode-tab active" id="tab-code-lab" onclick="switchMainMode('lab')">
+      ⚡ Code Intelligence & Architecture Lab
+    </div>
+    <div class="mode-tab" id="tab-curriculum" onclick="switchMainMode('curriculum')">
+      📚 Curriculum & Lessons Hub (Sections A–P)
+    </div>
+  </div>
+
+  <main class="hub-container" role="main">
+    <!-- LEFT SIDEBAR: Dynamic based on mode -->
+    <aside class="hub-sidebar" id="main-sidebar" role="complementary" aria-label="Sidebar Controls">
+      <div class="sidebar-inner" id="sidebar-curriculum-content" style="display: none;">
+        <h4 style="margin: 4px 0 12px 10px; color: var(--neon-cyan); font-size: 12px; text-transform: uppercase; letter-spacing: 1px;">
+          Language Hub Navigation
+        </h4>
+        <nav role="navigation" aria-label="Curriculum Topics Navigation">
+          <ul class="nav-list" id="nav-sections"></ul>
+        </nav>
+      </div>
+
+      <div class="sidebar-inner" id="sidebar-lab-content">
+        <h4 style="margin: 4px 0 12px 10px; color: #94a3b8; font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; font-weight: 700;">
+          Preset Code Samples
+        </h4>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <button onclick="loadPreset('loops')" style="text-align: left; padding: 10px; background: #090d16; border: 1px solid #1e293b; border-radius: 6px; color: #e2e8f0; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            <strong style="color: #f59e0b;">Loops:</strong> Sum of Evens
+          </button>
+          <button onclick="loadPreset('functions')" style="text-align: left; padding: 10px; background: #090d16; border: 1px solid #1e293b; border-radius: 6px; color: #e2e8f0; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            <strong style="color: #10b981;">Functions:</strong> Factorial Recursion
+          </button>
+          <button onclick="loadPreset('conditions')" style="text-align: left; padding: 10px; background: #090d16; border: 1px solid #1e293b; border-radius: 6px; color: #e2e8f0; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            <strong style="color: #38bdf8;">Branching:</strong> Grade Evaluation
+          </button>
+          <button onclick="loadPreset('error_syntax')" style="text-align: left; padding: 10px; background: #090d16; border: 1px solid rgba(244,63,94,0.3); border-radius: 6px; color: #e2e8f0; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            <strong style="color: #f43f5e;">⚠️ Auto-Fix:</strong> Missing Colon
+          </button>
+          <button onclick="loadPreset('error_name')" style="text-align: left; padding: 10px; background: #090d16; border: 1px solid rgba(244,63,94,0.3); border-radius: 6px; color: #e2e8f0; font-size: 13px; cursor: pointer; transition: all 0.2s;">
+            <strong style="color: #f43f5e;">⚠️ Auto-Fix:</strong> Misspelled Name
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN CONTENT AREA -->
+    <div class="content-area">
+      <!-- 1. CODE INTELLIGENCE LAB VIEW -->
+      <section id="view-code-lab" role="region" aria-label="Code Intelligence Lab">
+        <!-- Interactive Context & Instruction Set Banner -->
+        <div class="panel" style="margin-bottom: 20px; border-left: 3px solid #38bdf8; background: #0f172a;">
+          <div style="display: flex; justify-content: space-between; align-items: center; cursor: pointer;" onclick="toggleContextInstructions()">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-size: 16px;">ℹ️</span>
+              <h3 style="margin: 0; font-size: 13px; color: #f8fafc; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">
+                System Context & Basic Instruction Set
+              </h3>
+            </div>
+            <span id="btn-toggle-instructions" style="color: #38bdf8; font-size: 12px; font-weight: 600;">▾ Show Instructions</span>
+          </div>
+          <div id="context-instructions-body" style="display: none; margin-top: 14px; border-top: 1px solid #1e293b; padding-top: 14px; font-size: 13px; color: #cbd5e1; line-height: 1.6;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px;">
+              <div style="background: #090d16; padding: 12px; border-radius: 6px; border: 1px solid #1e293b;">
+                <strong style="color: #38bdf8;">1. Code Intelligence:</strong>
+                <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">Enter or upload Python code, or pick a sidebar preset. The editor auto-fits height without empty trailing lines.</p>
+              </div>
+              <div style="background: #090d16; padding: 12px; border-radius: 6px; border: 1px solid #1e293b;">
+                <strong style="color: #10b981;">2. Flowchart & Constructs:</strong>
+                <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">Generates visual execution flowcharts and extracts concrete code snippets from your input with authoritative study links.</p>
+              </div>
+              <div style="background: #090d16; padding: 12px; border-radius: 6px; border: 1px solid #1e293b;">
+                <strong style="color: #f43f5e;">3. Diagnostics & Auto-Fix:</strong>
+                <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">Detects syntax & runtime errors, pinpoints the line, and offers verified 1-click auto-fixing.</p>
+              </div>
+              <div style="background: #090d16; padding: 12px; border-radius: 6px; border: 1px solid #1e293b;">
+                <strong style="color: #f59e0b;">4. Step Walkthrough:</strong>
+                <p style="margin: 4px 0 0 0; font-size: 12px; color: #94a3b8;">Line-by-line execution breakdown with interactive line pills (e.g. <code>L1</code>, <code>L2</code>) and range filters.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-bottom: 24px; border-top: 2px solid #38bdf8;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;">
+            <h2 style="margin: 0; color: #f8fafc; font-size: 18px; font-weight: 700;">
+              Upload Code & Generate Architectural Explanation & Flowchart
+            </h2>
+            <span class="neon-tag" style="background: rgba(56, 189, 248, 0.12); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.25);">
+              Deep Code Intelligence
+            </span>
+          </div>
+
+          <!-- Drag and drop or file upload -->
+          <div class="file-dropzone" onclick="document.getElementById('file-upload').click()">
+            📁 Click to upload a <code>.py</code> file, or drag and drop your code file here
+            <input type="file" id="file-upload" accept=".py,.txt,.js" style="display: none;" onchange="handleFileUpload(event)">
+          </div>
+
+          <!-- Code Editor with Auto-Fitting Line Number Gutter (Capped at 10 lines max without empty trailing lines) -->
+          <div class="code-editor-container">
+            <div id="code-line-gutter" aria-hidden="true">1</div>
+            <textarea id="lab-code-input" class="code-editor" aria-label="Python Code Editor" placeholder="Paste or type your Python code here..." oninput="updateLineGutter()" onscroll="syncGutterScroll()"></textarea>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 14px; flex-wrap: wrap; gap: 12px;">
+            <div style="display: flex; gap: 10px;">
+              <button class="btn-action btn-run" onclick="analyzeAndRunCode()">
+                ▶ Run & Generate Flowchart
+              </button>
+              <button class="btn-action btn-explain" onclick="analyzeAndRunCode()">
+                ⚡ Explain Architecture
+              </button>
+            </div>
+            <span id="lab-status-badge" style="color: var(--muted); font-size: 13px;">Ready to inspect code</span>
+          </div>
+        </div>
+
+        <!-- RESULTS SECTION -->
+        <div id="lab-results-container" style="display: none;">
+          <!-- 0. Error Detection & Auto-Fix Card (Shown when error detected) -->
+          <div id="lab-error-card" class="panel" style="display: none; margin-bottom: 24px; border: 1px solid #f43f5e; background: rgba(244,63,94,0.04); box-shadow: 0 4px 12px rgba(0,0,0,0.2);">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+              <div style="display: flex; align-items: center; gap: 10px;">
+                <span style="font-size: 18px;">⚠️</span>
+                <h3 id="lab-error-title" style="margin: 0; color: #f43f5e; font-size: 15px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;"></h3>
+              </div>
+              <span id="lab-error-location" class="neon-tag" style="background: rgba(244,63,94,0.15); color: #fb7185; border: 1px solid rgba(244,63,94,0.3); font-weight: bold;"></span>
+            </div>
+
+            <!-- Error Line Highlight -->
+            <div id="lab-error-line-box" style="margin-bottom: 12px; display: none;">
+              <div style="font-size: 12px; color: var(--muted); margin-bottom: 4px;">Error occurred on this line:</div>
+              <pre id="lab-error-line-content" style="margin: 0; padding: 10px 14px; background: #090d16; border-left: 3px solid #f43f5e; border-radius: 4px; font-family: monospace; font-size: 13px; color: #fb7185;"></pre>
+            </div>
+
+            <p id="lab-error-explanation" style="line-height: 1.6; font-size: 14px; color: #f1f5f9; margin: 0 0 10px 0;"></p>
+            <div id="lab-error-cause" style="font-size: 13px; color: #cbd5e1; margin-bottom: 8px;"></div>
+            <div id="lab-error-fix-tip" style="font-size: 13px; color: #f59e0b; margin-bottom: 14px;"></div>
+
+            <!-- Auto-fix preview & button -->
+            <div id="lab-error-autofix-box" style="display: none; background: #090d16; border: 1px solid #1e293b; border-radius: 6px; padding: 14px; margin-top: 10px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <span style="color: #10b981; font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px;">
+                  ⚡ Proposed Auto-Fix Available
+                </span>
+                <span id="lab-autofix-verified-badge" class="neon-tag" style="background: rgba(16,185,129,0.12); color: #34d399; border: 1px solid rgba(16,185,129,0.25);">
+                  ✓ Sandboxed Verified
+                </span>
+              </div>
+              <p id="lab-autofix-desc" style="font-size: 13px; color: #cbd5e1; margin: 0 0 10px 0;"></p>
+              <pre id="lab-autofix-code" style="margin: 0 0 12px 0; padding: 10px 12px; background: #060910; border: 1px solid #1e293b; border-radius: 4px; font-family: monospace; font-size: 12px; color: #34d399; overflow-x: auto; max-height: 150px;"></pre>
+              <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                <button class="btn-action" onclick="applyProposedFix()" style="background: #10b981; color: #ffffff; font-weight: 600; border: 1px solid #34d399; padding: 8px 16px; border-radius: 4px; cursor: pointer;">
+                  ⚡ Apply Auto-Fix & Re-run
+                </button>
+                <button id="btn-open-error-lesson" class="neon-tag" style="background: rgba(56,189,248,0.12); color: #38bdf8; border: 1px solid rgba(56,189,248,0.25); text-decoration: none; cursor: pointer; padding: 8px 14px;">
+                  📖 Open Curriculum Topic
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1. Terminal Output Box -->
+          <div class="panel" style="margin-bottom: 24px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+              <h3 style="margin: 0; color: #10b981; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">
+                🖥️ Console Execution Output
+              </h3>
+              <span id="lab-exec-meta" style="font-size: 12px; color: var(--muted);"></span>
+            </div>
+            <pre id="lab-stdout-box" style="background: #090d16; padding: 14px; border-radius: 6px; color: #34d399; font-family: monospace; border: 1px solid #1e293b; margin: 0; min-height: 50px; font-size: 13px;"></pre>
+          </div>
+
+          <!-- 2. Interactive Flowchart Diagram (Collapsible) -->
+          <div class="panel" style="margin-bottom: 24px; border-top: 2px solid #818cf8;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div style="display: flex; align-items: center; gap: 12px;">
+                <h3 style="margin: 0; color: #818cf8; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">
+                  📊 Interactive Visual Execution Flowchart
+                </h3>
+                <button id="btn-toggle-diagram" onclick="toggleDiagram()" style="background: #1e293b; border: 1px solid #334155; color: #cbd5e1; padding: 4px 10px; border-radius: 4px; font-size: 11px; cursor: pointer; font-weight: 600;">
+                  ▾ Collapse Diagram
+                </button>
+              </div>
+              <span class="neon-tag" style="background: rgba(129, 140, 248, 0.12); color: #a5b4fc; border: 1px solid rgba(129, 140, 248, 0.25);">
+                Architecture Flow
+              </span>
+            </div>
+            <div id="diagram-collapsible-body" class="diagram-card" style="transition: all 0.3s ease;">
+              <div id="mermaid-render-target"></div>
+            </div>
+          </div>
+
+          <!-- 3. AI Explanation & Lesson Deep-Links -->
+          <div class="panel" style="border-top: 2px solid #f59e0b;">
+            <h3 style="margin: 0 0 12px 0; color: #f59e0b; font-size: 14px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">
+              📖 Code Breakdown & Architectural Analysis
+            </h3>
+            <p id="lab-overall-explanation" style="line-height: 1.6; font-size: 14px; color: #f1f5f9;"></p>
+            
+            <div id="lab-constructs-tags" style="margin: 14px 0;"></div>
+
+            <!-- Line Filter & Range Selector -->
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px; margin: 20px 0 10px 0; border-top: 1px solid #1e293b; padding-top: 16px;">
+              <h4 style="margin: 0; color: #38bdf8; font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; font-weight: 700;">
+                Line-by-Line Execution Analysis:
+              </h4>
+              <div style="display: flex; align-items: center; gap: 6px; font-size: 12px; flex-wrap: wrap;">
+                <span style="color: var(--muted);">Filter:</span>
+                <button id="btn-filter-all" class="neon-tag" onclick="filterLineBreakdown('all')" style="cursor: pointer; background: rgba(56, 189, 248, 0.15); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3);">
+                  All Lines
+                </button>
+                <span style="color: var(--muted); margin-left: 6px;">Range:</span>
+                <input type="number" id="filter-range-start" placeholder="From" min="1" style="width: 52px; background: #090d16; border: 1px solid #1e293b; color: #fff; padding: 3px 6px; border-radius: 4px; font-size: 12px;">
+                <span style="color: var(--muted);">-</span>
+                <input type="number" id="filter-range-end" placeholder="To" min="1" style="width: 52px; background: #090d16; border: 1px solid #1e293b; color: #fff; padding: 3px 6px; border-radius: 4px; font-size: 12px;">
+                <button class="neon-tag" onclick="applyLineRangeFilter()" style="cursor: pointer; background: rgba(16, 185, 129, 0.12); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.25);">
+                  Apply
+                </button>
+              </div>
+            </div>
+            <div id="lab-line-selector-pills" style="margin-bottom: 12px; display: flex; gap: 6px; flex-wrap: wrap;"></div>
+            <div id="lab-line-breakdown" style="display: flex; flex-direction: column; gap: 8px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. CURRICULUM VIEW -->
+      <section id="view-curriculum" role="region" aria-label="Curriculum View" style="display: none;">
+        <!-- Live CI Coverage Meter -->
+        <div id="coverage-meter-container" class="panel" style="margin-bottom: 24px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+            <h3 style="margin: 0; color: var(--neon-cyan); text-transform: uppercase; font-size: 15px; letter-spacing: 1px;">
+              Live CI Quality Coverage Meter
+            </h3>
+            <span id="meter-toolchain" class="neon-tag" style="background: #1e294b; color: var(--neon-green);">
+              Toolchain: Loading...
+            </span>
+          </div>
+
+          <div style="background: #0a0e1a; border-radius: 6px; height: 14px; overflow: hidden; margin-bottom: 16px; border: 1px solid #1e294b;">
+            <div id="meter-bar" style="width: 100%; background: linear-gradient(90deg, #00f0ff, #39ff14); height: 100%; box-shadow: 0 0 10px #39ff14;"></div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">
+            <div style="background: #0a0e1a; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #1e294b;">
+              <div id="stat-written" style="font-size: 22px; font-weight: bold; color: #e6f1ff;">8</div>
+              <div style="font-size: 11px; color: var(--muted); text-transform: uppercase;">Topics Written</div>
+            </div>
+            <div style="background: #0a0e1a; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #1e294b;">
+              <div id="stat-verified" style="font-size: 22px; font-weight: bold; color: var(--neon-cyan);">8</div>
+              <div style="font-size: 11px; color: var(--muted); text-transform: uppercase;">Topics Verified</div>
+            </div>
+            <div style="background: #0a0e1a; padding: 10px; border-radius: 6px; text-align: center; border: 1px solid #1e294b;">
+              <div id="stat-examples" style="font-size: 22px; font-weight: bold; color: var(--neon-amber);">16 / 16</div>
+              <div style="font-size: 11px; color: var(--muted); text-transform: uppercase;">Examples Verified</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lessons Container -->
+        <div id="main-content-display"></div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    // Initialize Mermaid with clean professional dark theme
+    if (typeof mermaid !== 'undefined') {
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: 'base',
+        securityLevel: 'strict',
+        themeVariables: {
+          darkMode: true,
+          background: '#090d16',
+          primaryColor: '#1e293b',
+          primaryTextColor: '#f8fafc',
+          primaryBorderColor: '#38bdf8',
+          lineColor: '#64748b',
+          fontFamily: "'JetBrains Mono', 'Fira Code', monospace"
+        }
+      });
+    }
+
+    const PRESETS = {
+      loops: `total = 0\nfor i in range(1, 6):\n    if i % 2 == 0:\n        total += i\nprint(f"Sum of evens: {total}")`,
+      functions: `def factorial(n):\n    if n <= 1:\n        return 1\n    return n * factorial(n - 1)\n\nresult = factorial(5)\nprint(f"5! = {result}")`,
+      conditions: `score = 85\nif score >= 90:\n    grade = "A"\nelif score >= 80:\n    grade = "B"\nelse:\n    grade = "C"\nprint(f"Final Grade: {grade}")`,
+      error_syntax: `def calculate_average(numbers)\n    total = sum(numbers)\n    return total / len(numbers)\n\nscores = [85, 92, 78, 90]\nprint(calculate_average(scores))`,
+      error_name: `message = "CODE ATLAS Deep Intelligence"\nprnt(message)`
+    };
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function updateLineGutter(highlightErrorLine) {
+      const textarea = document.getElementById('lab-code-input');
+      const gutter = document.getElementById('code-line-gutter');
+      const code = textarea.value;
+      const lines = code.split('\n');
+      const lineCount = Math.max(1, lines.length);
+
+      // Dynamic Auto-Fitting Height:
+      // Fits content precisely up to 10 lines max without showing remaining empty blank lines.
+      const cappedLines = Math.min(10, lineCount);
+      const targetHeightPx = Math.max(48, cappedLines * 21 + 24);
+
+      textarea.style.height = targetHeightPx + 'px';
+      gutter.style.height = targetHeightPx + 'px';
+
+      if (lineCount <= 10) {
+        textarea.style.overflowY = 'hidden';
+        gutter.style.overflowY = 'hidden';
+      } else {
+        textarea.style.overflowY = 'auto';
+        gutter.style.overflowY = 'hidden';
+      }
+
+      let html = '';
+      for (let i = 1; i <= lineCount; i++) {
+        if (highlightErrorLine === i) {
+          html += `<div style="color: #f43f5e; font-weight: bold; background: rgba(244,63,94,0.18); border-radius: 2px;">${i} ⚠</div>`;
+        } else {
+          html += `<div>${i}</div>`;
+        }
+      }
+      gutter.innerHTML = html;
+    }
+
+    function syncGutterScroll() {
+      const ta = document.getElementById('lab-code-input');
+      const gutter = document.getElementById('code-line-gutter');
+      gutter.scrollTop = ta.scrollTop;
+    }
+
+    function toggleDiagram() {
+      const body = document.getElementById('diagram-collapsible-body');
+      const btn = document.getElementById('btn-toggle-diagram');
+      if (body.style.display === 'none') {
+        body.style.display = 'block';
+        btn.innerHTML = '▾ Collapse Diagram';
+      } else {
+        body.style.display = 'none';
+        btn.innerHTML = '▸ Expand Diagram';
+      }
+    }
+
+    function toggleContextInstructions() {
+      const body = document.getElementById('context-instructions-body');
+      const btn = document.getElementById('btn-toggle-instructions');
+      if (body.style.display === 'none') {
+        body.style.display = 'block';
+        btn.textContent = '▴ Hide Instructions';
+      } else {
+        body.style.display = 'none';
+        btn.textContent = '▾ Show Instructions';
+      }
+    }
+
+    let currentLineWalkthrough = [];
+    let selectedLineNumbers = new Set();
+
+    function renderLineBreakdownUI(walkthrough) {
+      currentLineWalkthrough = walkthrough || [];
+      selectedLineNumbers.clear();
+
+      // Render line number selector pills
+      const pillsContainer = document.getElementById('lab-line-selector-pills');
+      pillsContainer.innerHTML = currentLineWalkthrough.map(lw => `
+        <button class="neon-tag line-pill" id="line-pill-${lw.line}" onclick="toggleLineFilter(${lw.line})" style="cursor: pointer; background: #090d16; color: #94a3b8; border: 1px solid #1e293b; font-size: 11px; padding: 3px 8px;">
+          L${lw.line}
+        </button>
+      `).join('');
+
+      renderLineBreakdownItems(currentLineWalkthrough);
+    }
+
+    function renderLineBreakdownItems(items) {
+      const lineBox = document.getElementById('lab-line-breakdown');
+      if (!items || items.length === 0) {
+        lineBox.innerHTML = '<div style="color: var(--muted); font-size: 13px; padding: 12px; text-align: center;">No lines match the selected filter.</div>';
+        return;
+      }
+      lineBox.innerHTML = items.map(lw => `
+        <div style="background: #090d16; padding: 10px 14px; border-radius: 6px; border: 1px solid #1e293b; border-left: 3px solid #38bdf8; font-size: 13px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+            <span style="color: #f59e0b; font-weight: bold; font-family: monospace;">Line ${lw.line}:</span>
+            <code style="color: #38bdf8; background: rgba(56, 189, 248, 0.1); padding: 2px 6px; border-radius: 3px; font-size: 12px;">${escapeHtml(lw.text)}</code>
+          </div>
+          <div style="color: #cbd5e1; margin-top: 4px; line-height: 1.4;">↳ ${lw.explanation}</div>
+        </div>
+      `).join('');
+    }
+
+    function filterLineBreakdown(mode) {
+      if (mode === 'all') {
+        selectedLineNumbers.clear();
+        document.querySelectorAll('.line-pill').forEach(btn => {
+          btn.style.background = '#090d16';
+          btn.style.color = '#94a3b8';
+          btn.style.borderColor = '#1e293b';
+        });
+        const btnAll = document.getElementById('btn-filter-all');
+        if (btnAll) {
+          btnAll.style.background = 'rgba(56, 189, 248, 0.15)';
+          btnAll.style.color = '#38bdf8';
+          btnAll.style.borderColor = 'rgba(56, 189, 248, 0.3)';
+        }
+        renderLineBreakdownItems(currentLineWalkthrough);
+      }
+    }
+
+    function toggleLineFilter(lineNum) {
+      const btnAll = document.getElementById('btn-filter-all');
+      if (btnAll) {
+        btnAll.style.background = '#090d16';
+        btnAll.style.color = 'var(--muted)';
+        btnAll.style.borderColor = '#1e293b';
+      }
+
+      if (selectedLineNumbers.has(lineNum)) {
+        selectedLineNumbers.delete(lineNum);
+      } else {
+        selectedLineNumbers.add(lineNum);
+      }
+
+      // Update pill styling
+      const pill = document.getElementById(`line-pill-${lineNum}`);
+      if (pill) {
+        if (selectedLineNumbers.has(lineNum)) {
+          pill.style.background = 'rgba(56, 189, 248, 0.18)';
+          pill.style.color = '#38bdf8';
+          pill.style.borderColor = 'rgba(56, 189, 248, 0.4)';
+        } else {
+          pill.style.background = '#090d16';
+          pill.style.color = '#94a3b8';
+          pill.style.borderColor = '#1e293b';
+        }
+      }
+
+      if (selectedLineNumbers.size === 0) {
+        filterLineBreakdown('all');
+      } else {
+        const filtered = currentLineWalkthrough.filter(lw => selectedLineNumbers.has(lw.line));
+        renderLineBreakdownItems(filtered);
+      }
+    }
+
+    function applyLineRangeFilter() {
+      const start = parseInt(document.getElementById('filter-range-start').value, 10);
+      const end = parseInt(document.getElementById('filter-range-end').value, 10);
+      if (isNaN(start) || isNaN(end) || start > end) {
+        alert('Please enter a valid line range (From <= To).');
+        return;
+      }
+      selectedLineNumbers.clear();
+      for (let i = start; i <= end; i++) {
+        selectedLineNumbers.add(i);
+      }
+
+      const btnAll = document.getElementById('btn-filter-all');
+      if (btnAll) {
+        btnAll.style.background = '#090d16';
+        btnAll.style.color = 'var(--muted)';
+        btnAll.style.borderColor = '#1e293b';
+      }
+
+      document.querySelectorAll('.line-pill').forEach(btn => {
+        const num = parseInt(btn.id.replace('line-pill-', ''), 10);
+        if (selectedLineNumbers.has(num)) {
+          btn.style.background = 'rgba(16, 185, 129, 0.18)';
+          btn.style.color = '#34d399';
+          btn.style.borderColor = 'rgba(16, 185, 129, 0.4)';
+        } else {
+          btn.style.background = '#090d16';
+          btn.style.color = '#94a3b8';
+          btn.style.borderColor = '#1e293b';
+        }
+      });
+
+      const filtered = currentLineWalkthrough.filter(lw => selectedLineNumbers.has(lw.line));
+      renderLineBreakdownItems(filtered);
+    }
+
+    let proposedFixedCode = '';
+
+    function handleLabError(errInfo) {
+      const errCard = document.getElementById('lab-error-card');
+      if (!errInfo || !errInfo.hasError) {
+        errCard.style.display = 'none';
+        updateLineGutter();
+        return;
+      }
+
+      errCard.style.display = 'block';
+      document.getElementById('lab-error-title').textContent = `${errInfo.errorType} Detected`;
+      document.getElementById('lab-error-location').textContent = errInfo.errorLine ? `Line ${errInfo.errorLine}` : 'Execution Phase';
+      
+      const lineBox = document.getElementById('lab-error-line-box');
+      if (errInfo.errorLine && errInfo.errorLineText) {
+        lineBox.style.display = 'block';
+        document.getElementById('lab-error-line-content').textContent = `Line ${errInfo.errorLine}: ${errInfo.errorLineText}`;
+        updateLineGutter(errInfo.errorLine);
+      } else {
+        lineBox.style.display = 'none';
+        updateLineGutter();
+      }
+
+      document.getElementById('lab-error-explanation').textContent = errInfo.plainLanguageExplanation;
+      document.getElementById('lab-error-cause').innerHTML = `<strong>Likely Cause:</strong> ${escapeHtml(errInfo.likelyCause)}`;
+      document.getElementById('lab-error-fix-tip').innerHTML = `<strong>How to Fix:</strong> ${escapeHtml(errInfo.howToFix)}`;
+
+      // Auto-fix section
+      const autoFixBox = document.getElementById('lab-error-autofix-box');
+      if (errInfo.fixedCode) {
+        proposedFixedCode = errInfo.fixedCode;
+        autoFixBox.style.display = 'block';
+        document.getElementById('lab-autofix-desc').textContent = errInfo.fixDescription || 'Automated syntax & logic resolution proposed.';
+        document.getElementById('lab-autofix-code').textContent = errInfo.fixedCode;
+        
+        const badge = document.getElementById('lab-autofix-verified-badge');
+        if (errInfo.verifiedFixed) {
+          badge.textContent = '✓ Sandboxed Verified';
+          badge.style.color = '#34d399';
+          badge.style.borderColor = 'rgba(16, 185, 129, 0.3)';
+        } else {
+          badge.textContent = '⚡ Intelligent Heuristic';
+          badge.style.color = '#fbbf24';
+          badge.style.borderColor = 'rgba(245, 158, 11, 0.3)';
+        }
+      } else {
+        autoFixBox.style.display = 'none';
+      }
+
+      // Link to topic
+      const lessonBtn = document.getElementById('btn-open-error-lesson');
+      if (errInfo.targetLessonId) {
+        lessonBtn.style.display = 'inline-block';
+        lessonBtn.textContent = `📖 Open Lesson: ${errInfo.targetLessonTitle}`;
+        lessonBtn.onclick = () => openCurriculumLesson(errInfo.targetLessonId);
+      } else {
+        lessonBtn.style.display = 'none';
+      }
+    }
+
+    function applyProposedFix() {
+      if (!proposedFixedCode) return;
+      document.getElementById('lab-code-input').value = proposedFixedCode;
+      updateLineGutter();
+      analyzeAndRunCode();
+    }
+
+    function loadPreset(key) {
+      document.getElementById('lab-code-input').value = PRESETS[key] || '';
+      updateLineGutter();
+      analyzeAndRunCode();
+    }
+
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        document.getElementById('lab-code-input').value = e.target.result;
+        updateLineGutter();
+        analyzeAndRunCode();
+      };
+      reader.readAsText(file);
+    }
+
+    function switchMainMode(mode) {
+      const tabLab = document.getElementById('tab-code-lab');
+      const tabCurr = document.getElementById('tab-curriculum');
+      const viewLab = document.getElementById('view-code-lab');
+      const viewCurr = document.getElementById('view-curriculum');
+      const sideLab = document.getElementById('sidebar-lab-content');
+      const sideCurr = document.getElementById('sidebar-curriculum-content');
+
+      if (mode === 'lab') {
+        tabLab.classList.add('active');
+        tabCurr.classList.remove('active');
+        viewLab.style.display = 'block';
+        viewCurr.style.display = 'none';
+        sideLab.style.display = 'block';
+        sideCurr.style.display = 'none';
+      } else {
+        tabLab.classList.remove('active');
+        tabCurr.classList.add('active');
+        viewLab.style.display = 'none';
+        viewCurr.style.display = 'block';
+        sideLab.style.display = 'none';
+        sideCurr.style.display = 'block';
+      }
+    }
+
+    async function analyzeAndRunCode() {
+      const code = document.getElementById('lab-code-input').value.trim();
+      if (!code) {
+        alert('Please enter or upload some Python code first!');
+        return;
+      }
+
+      const badge = document.getElementById('lab-status-badge');
+      badge.textContent = '⚡ Running in sandbox and analyzing architecture...';
+
+      try {
+        const resp = await fetch('/api/analyze-code', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ code })
+        });
+        const res = await resp.json();
+
+        badge.textContent = 'Analysis & Flowchart Ready';
+        document.getElementById('lab-results-container').style.display = 'block';
+
+        // Render Error Card or Hide
+        handleLabError(res.errorAnalysis);
+
+        // 1. Terminal stdout
+        const stdout = res.execution.stdout || res.execution.stderr || '(No output produced)';
+        document.getElementById('lab-stdout-box').textContent = stdout;
+        document.getElementById('lab-exec-meta').textContent = `Duration: ${res.execution.executionTimeMs}ms | Exit Code: ${res.execution.exitCode}`;
+
+        // 2. Interactive Flowchart Diagram
+        const renderTarget = document.getElementById('mermaid-render-target');
+        const diagramSource = res.analysis.mermaidSource;
+        renderTarget.innerHTML = `<pre class="mermaid">${diagramSource}</pre>`;
+        
+        if (typeof mermaid !== 'undefined') {
+          try {
+            mermaid.run({ nodes: [renderTarget.querySelector('.mermaid')] });
+          } catch(e) {
+            console.warn('Mermaid render:', e);
+          }
+        }
+
+        // 3. Explanation & Deep Links
+        document.getElementById('lab-overall-explanation').textContent = res.analysis.overallExplanation;
+        
+        // Render detected constructs with user code example & For Deeper Studies
+        const tagsBox = document.getElementById('lab-constructs-tags');
+        if (res.analysis.constructsDetected && res.analysis.constructsDetected.length > 0) {
+          tagsBox.innerHTML = `
+            <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; margin-top: 10px;">
+              ${res.analysis.constructsDetected.map(c => `
+                <div style="background: #111827; border: 1px solid #1f2937; border-left: 3px solid #38bdf8; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                  <div>
+                    <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px;">
+                      <h4 style="margin: 0; color: #38bdf8; font-size: 14px; font-weight: 700;">${escapeHtml(c.name)}</h4>
+                      <a href="#" onclick="openCurriculumLesson('${c.lessonId}')" class="neon-tag" style="background: rgba(56,189,248,0.1); color: #38bdf8; border: 1px solid rgba(56,189,248,0.25); text-decoration: none; font-size: 11px;">
+                        Lesson: ${escapeHtml(c.title)}
+                      </a>
+                    </div>
+                    <p style="font-size: 13px; color: #cbd5e1; margin: 0 0 10px 0; line-height: 1.5;">${escapeHtml(c.explanation)}</p>
+
+                    <!-- User code example -->
+                    <div style="margin-bottom: 12px;">
+                      <div style="font-size: 11px; text-transform: uppercase; color: #10b981; letter-spacing: 0.5px; margin-bottom: 4px; font-weight: 700;">
+                        Example from your code:
+                      </div>
+                      <pre style="background: #090d16; border: 1px solid #1f2937; border-radius: 6px; padding: 10px 12px; color: #34d399; font-family: monospace; font-size: 12px; margin: 0; white-space: pre-wrap; overflow-x: auto;"><code>${escapeHtml(c.userSnippet || '(Implicit expression)')}</code></pre>
+                    </div>
+                  </div>
+
+                  <!-- For Deeper Studies -->
+                  <div style="border-top: 1px dashed #1f2937; padding-top: 12px; margin-top: 12px;">
+                    <div style="font-size: 11px; text-transform: uppercase; color: #a855f7; letter-spacing: 0.5px; margin-bottom: 8px; font-weight: 700;">
+                      📚 For Deeper Studies:
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 6px;">
+                      ${(c.deeperStudies || []).map(ds => `
+                        <a href="${ds.url}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; background: #090d16; border: 1px solid #1f2937; border-radius: 6px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; transition: border-color 0.2s;">
+                          <div>
+                            <div style="color: #38bdf8; font-size: 12px; font-weight: 600;">${escapeHtml(ds.title)} ↗</div>
+                            <div style="color: #94a3b8; font-size: 11px; margin-top: 2px;">${escapeHtml(ds.description)}</div>
+                          </div>
+                          <span style="font-size: 10px; background: #1f2937; color: #e2e8f0; padding: 2px 8px; border-radius: 4px; border: 1px solid #374151; white-space: nowrap; margin-left: 10px;">${escapeHtml(ds.source)}</span>
+                        </a>
+                      `).join('')}
+                    </div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          `;
+        } else {
+          tagsBox.innerHTML = '<span style="color: var(--muted); font-size: 13px;">No advanced constructs detected.</span>';
+        }
+
+        // Render line breakdown with filter selector
+        renderLineBreakdownUI(res.analysis.lineWalkthrough);
+
+      } catch (err) {
+        badge.textContent = 'Error: ' + err.message;
+      }
+    }
+
+    function openCurriculumLesson(lessonId) {
+      switchMainMode('curriculum');
+      const topic = allTopics.find(t => t.id === lessonId);
+      if (topic) renderTopic(topic);
+    }
+
+    // Default load preset
+    loadPreset('loops');
+
+    // Fetch Curriculum data
+    let allTopics = [];
+    fetch('/api/topics')
+      .then(r => r.json())
+      .then(topics => {
+        allTopics = topics;
+        renderCurriculumNav();
+        renderTopic(topics[0]);
+      });
+
+    fetch('/api/coverage')
+      .then(r => r.json())
+      .then(cov => {
+        document.getElementById('meter-toolchain').textContent = 'Toolchain: ' + cov.toolchain_version;
+        document.getElementById('stat-written').textContent = cov.topics_written;
+        document.getElementById('stat-verified').textContent = cov.topics_verified;
+        document.getElementById('stat-examples').textContent = cov.examples_verified + ' / ' + cov.examples_total;
+      });
+
+    function renderCurriculumNav() {
+      const navContainer = document.getElementById('nav-sections');
+      navContainer.innerHTML = '';
+      allTopics.forEach((t, idx) => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <a href="#" onclick="renderTopic(allTopics[${idx}]); return false;" class="nav-link">
+            <span class="nav-letter">${idx + 1}.</span>
+            <span>${t.title}</span>
+          </a>
+        `;
+        navContainer.appendChild(li);
+      });
+    }
+
+    function renderTopic(topic) {
+      const display = document.getElementById('main-content-display');
+      display.innerHTML = `
+        <article class="panel" style="border-top: 2px solid #38bdf8;">
+          <h1 style="color: #38bdf8; margin-top: 0; font-size: 20px; font-weight: 700;">${escapeHtml(topic.title)}</h1>
+          <p style="font-size: 14px; line-height: 1.6; color: #cbd5e1;">${escapeHtml(topic.explanation_simple)}</p>
+          <div style="background: #090d16; padding: 14px; border: 1px solid #1e293b; border-left: 3px solid #10b981; border-radius: 6px; margin: 16px 0;">
+            <strong style="color: #10b981; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px;">Technical Details:</strong>
+            <p style="margin: 6px 0 0 0; color: #f1f5f9; font-size: 13px; line-height: 1.5;">${escapeHtml(topic.explanation_technical)}</p>
+          </div>
+          <pre style="background: #090d16; border: 1px solid #1e293b; padding: 12px; border-radius: 6px; color: #34d399; font-family: monospace; font-size: 13px;"><code>${escapeHtml(topic.worked_examples[0].code)}</code></pre>
+          <p style="color: var(--muted); font-size: 13px;">Verified Execution Output: <code style="color: #f1f5f9; background: #1e293b; padding: 2px 6px; border-radius: 3px;">${escapeHtml(topic.worked_examples[0].expected_output.trim())}</code></p>
+        </article>
+      `;
+    }
+  </script>
+</body>
+</html>

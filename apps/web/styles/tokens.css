@@ -1,0 +1,77 @@
+/**
+ * CODE ATLAS Executive Dark Design Tokens
+ * Spec Section 20.2 - Professional High-Class Enterprise Palette
+ */
+:root {
+  --bg: #0a0d14;
+  --panel: #111622;
+  --panel-border: #1e2638;
+  --panel-border-hover: #2e3a54;
+  
+  /* Executive Accents */
+  --neon-cyan: #38bdf8;       /* Precision Sapphire Blue */
+  --neon-magenta: #a855f7;    /* Royal Indigo/Purple */
+  --neon-green: #10b981;      /* Executive Emerald */
+  --neon-violet: #818cf8;     /* Modern Lavender Slate */
+  --neon-amber: #f59e0b;      /* Warm Studio Gold */
+  --neon-red: #f43f5e;        /* Clean Crimson */
+  
+  --text: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --muted: #8492a6;
+
+  /* Semantic colors */
+  --color-concept: var(--neon-cyan);
+  --color-prerequisite: var(--neon-violet);
+  --color-mastered: var(--neon-green);
+  --color-in-progress: var(--neon-amber);
+  --color-error: var(--neon-red);
+  --color-advanced: var(--neon-magenta);
+
+  /* Subtle Clean Styling (No gaudy glows) */
+  --glow-radius: 0px;
+  --glow-filter: none;
+  --font-sans: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.panel {
+  background-color: var(--panel);
+  border: 1px solid var(--panel-border);
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.panel:hover {
+  border-color: var(--panel-border-hover);
+}
+
+/* Accessibility focus styles */
+:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 2px;
+}

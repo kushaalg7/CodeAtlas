@@ -1,0 +1,47 @@
+{
+  "id": "syntax-05",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-05-conditions",
+  "level": "beginner",
+  "prerequisites": [
+    "python-03-operators"
+  ],
+  "related_concepts": [
+    "concept-conditionals"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#if-statements",
+      "title": "if Statements",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "Conditional Branching: if, elif, else Construct",
+  "official_syntax": "if condition:\n    suite\nelif other_condition:\n    suite\nelse:\n    suite",
+  "explanation_simple": "Conditions are fork in the road decisions. If condition A is true, go down path A. If not, check path B with elif, or take the default else path.",
+  "explanation_technical": "CPython implements branching via POP_JUMP_IF_FALSE opcodes, jumping instruction pointers based on PyObject truth value.",
+  "components_or_parameters": [
+    {
+      "name": "expression",
+      "description": "Evaluated target",
+      "is_optional": false
+    }
+  ],
+  "example": "score = 85\nif score >= 90:\n    print(\"Grade A\")\nelif score >= 80:\n    print(\"Grade B\")\nelse:\n    print(\"Grade C\")",
+  "expected_output": "Grade B\n",
+  "output_is_deterministic": true,
+  "common_mistakes": [
+    "mistake-05"
+  ],
+  "version_compatibility": "Python 3.0+",
+  "use_cases": [
+    "Fundamental programming operations"
+  ]
+}

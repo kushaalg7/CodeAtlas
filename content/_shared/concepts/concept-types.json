@@ -1,0 +1,8 @@
+{
+  "id": "concept-types",
+  "name": "Data Types and Values",
+  "description": "Classification of values indicating valid operations, internal memory layout, and semantics.",
+  "category": "language_fundamentals",
+  "prerequisites": ["concept-variables"],
+  "related_concepts": ["concept-operators"]
+}

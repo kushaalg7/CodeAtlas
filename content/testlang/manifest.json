@@ -1,0 +1,7 @@
+{
+  "language": "testlang",
+  "versions_supported": ["1.0"],
+  "tier": "Tier B",
+  "doc_base_urls": ["https://example.com/testlang/docs"],
+  "maintainers": ["modularity-tester@example.com"]
+}

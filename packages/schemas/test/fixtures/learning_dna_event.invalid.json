@@ -1,0 +1,8 @@
+{
+  "event_id": "evt-81203",
+  "user_id": "user-4819",
+  "language": "python",
+  "timestamp": "2026-10-30T11:30:00Z",
+  "event_type": "alien_laser_fired",
+  "payload": {}
+}

@@ -1,0 +1,10 @@
+{
+  "id": "concept-output",
+  "name": "Standard Output",
+  "description": "Emitting text to the standard console stream.",
+  "category": "io",
+  "prerequisites": [],
+  "related_concepts": ["concept-io"],
+  "contrasts_with": [],
+  "commonly_confused_with": []
+}

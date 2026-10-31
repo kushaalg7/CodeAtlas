@@ -1,0 +1,7 @@
+{
+  "language": "java",
+  "versions_supported": ["Java 17", "Java 21"],
+  "tier": "Tier C",
+  "doc_base_urls": ["https://docs.oracle.com/en/java/javase/21/"],
+  "maintainers": ["codemind-team@example.com"]
+}

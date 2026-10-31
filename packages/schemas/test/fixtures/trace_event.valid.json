@@ -1,0 +1,22 @@
+{
+  "step": 3,
+  "line": 4,
+  "event_type": "variable_assignment",
+  "variable_name": "total",
+  "value": "12",
+  "call_stack": [
+    {
+      "function_name": "sum_even",
+      "line": 4,
+      "variables": {
+        "n": "6",
+        "total": "12"
+      }
+    }
+  ],
+  "stack_depth": 1,
+  "stack_snapshot": {
+    "total": "12",
+    "n": "6"
+  }
+}

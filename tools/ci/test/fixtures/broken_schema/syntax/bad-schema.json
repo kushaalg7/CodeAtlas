@@ -1,0 +1,12 @@
+{
+  "id": "syntax-bad",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-01-syntax",
+  "level": "beginner",
+  "prerequisites": [],
+  "related_concepts": [],
+  "doc_references": [],
+  "name": "bad syntax item"
+}

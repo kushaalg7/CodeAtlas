@@ -1,0 +1,7 @@
+{
+  "language": "cpp",
+  "versions_supported": ["C++17", "C++20"],
+  "tier": "Tier C",
+  "doc_base_urls": ["https://en.cppreference.com/w/cpp"],
+  "maintainers": ["codemind-team@example.com"]
+}

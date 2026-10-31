@@ -1,0 +1,7 @@
+{
+  "language": "csharp",
+  "versions_supported": [".NET 8", "C# 12"],
+  "tier": "Tier C",
+  "doc_base_urls": ["https://learn.microsoft.com/en-us/dotnet/csharp/"],
+  "maintainers": ["codemind-team@example.com"]
+}

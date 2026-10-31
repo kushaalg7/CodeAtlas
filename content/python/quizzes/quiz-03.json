@@ -1,0 +1,44 @@
+{
+  "id": "quiz-03",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-03-operators",
+  "level": "beginner",
+  "prerequisites": [
+    "python-02-variables-and-types"
+  ],
+  "related_concepts": [
+    "concept-operators"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/reference/expressions.html",
+      "title": "Expressions and Operators",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "quiz_id": "quiz-03",
+  "question_type": "multiple_choice",
+  "question": "What is the primary role of Arithmetic, Comparison, and Logical Operators in Python?",
+  "options": [
+    "You can calculate mathematical expressions using arithmetic operators",
+    "To crash the computer",
+    "To make code run slower",
+    "To ignore logic"
+  ],
+  "correct_answer": "You can calculate mathematical expressions using arithmetic operators",
+  "explanation": "Arithmetic, Comparison, and Logical Operators is designed so that: You can calculate mathematical expressions using arithmetic operators.",
+  "concept_tags": [
+    "concept-operators"
+  ],
+  "misconception_id": "misconception-03",
+  "hints": [
+    "Think about what you learned in the learning objectives."
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "id": "quiz-07",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-07-functions-basics",
+  "level": "beginner",
+  "prerequisites": [
+    "python-06-loops"
+  ],
+  "related_concepts": [
+    "concept-functions"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#defining-functions",
+      "title": "Defining Functions",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "quiz_id": "quiz-07",
+  "question_type": "multiple_choice",
+  "question": "What is the primary role of Defining Functions with def in Python?",
+  "options": [
+    "You can encapsulate code into reusable functions using def",
+    "To crash the computer",
+    "To make code run slower",
+    "To ignore logic"
+  ],
+  "correct_answer": "You can encapsulate code into reusable functions using def",
+  "explanation": "Defining Functions with def is designed so that: You can encapsulate code into reusable functions using def.",
+  "concept_tags": [
+    "concept-functions"
+  ],
+  "misconception_id": "misconception-07",
+  "hints": [
+    "Think about what you learned in the learning objectives."
+  ]
+}

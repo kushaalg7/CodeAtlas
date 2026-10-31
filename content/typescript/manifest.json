@@ -1,0 +1,7 @@
+{
+  "language": "typescript",
+  "versions_supported": ["5.0", "5.4"],
+  "tier": "Tier B",
+  "doc_base_urls": ["https://www.typescriptlang.org/docs/"],
+  "maintainers": ["codemind-team@example.com"]
+}

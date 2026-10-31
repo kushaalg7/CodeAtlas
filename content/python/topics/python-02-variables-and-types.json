@@ -1,0 +1,91 @@
+{
+  "id": "python-02-variables-and-types",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-02-variables-and-types",
+  "level": "beginner",
+  "prerequisites": [
+    "python-01-syntax-and-execution"
+  ],
+  "related_concepts": [
+    "concept-variables",
+    "concept-types"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/library/stdtypes.html",
+      "title": "Built-in Types",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Variables and Primitive Types",
+  "learning_objectives": [
+    "You can assign numbers, strings, and booleans to variables",
+    "You can inspect runtime types using type()"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What is the key principle behind Variables and Primitive Types?",
+      "options": [
+        "Follow Python syntax and semantics",
+        "Ignore errors",
+        "Use random spaces"
+      ],
+      "correct_index": 0,
+      "explanation": "Python requires adhering to clear lexical and semantic rules."
+    }
+  ],
+  "explanation_simple": "Variables are labeled storage boxes in computer memory. You write the box name, an equals sign, and the value you want to keep inside.",
+  "explanation_technical": "Python variables are reference names pointing to PyObject heap allocations. Primitive values like int, float, bool, and str are immutable.",
+  "syntax": "variable_name = value",
+  "worked_examples": [
+    {
+      "id": "we-02",
+      "title": "Declaring variables of different types",
+      "code": "age = 25\ngpa = 3.9\nis_student = True\nprint(age, gpa, is_student)",
+      "expected_output": "25 3.9 True\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Executes the demonstrated concept."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart LR\n Name[age]:::available --> Heap[PyObject int: 25]:::mastered",
+    "alt_text": "Variable identifier referencing heap object",
+    "concept_tags": [
+      "concept-variables"
+    ]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "Predict the output of: age = 25",
+      "code": "age = 25\ngpa = 3.9\nis_student = True\nprint(age, gpa, is_student)",
+      "expected_output": "25 3.9 True\n",
+      "explanation": "Executes according to language rules."
+    }
+  ],
+  "common_mistake_ids": [
+    "mistake-02"
+  ],
+  "practice_exercise_ids": [
+    "exercise-02"
+  ],
+  "quiz_ids": [
+    "quiz-02"
+  ],
+  "summary": "Variables point to immutable primitive values and dynamically track their type at runtime.",
+  "what_to_learn_next": [
+    "python-03-operators"
+  ]
+}

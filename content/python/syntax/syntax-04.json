@@ -1,0 +1,47 @@
+{
+  "id": "syntax-04",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-04-input-output",
+  "level": "beginner",
+  "prerequisites": [
+    "python-03-operators"
+  ],
+  "related_concepts": [
+    "concept-io"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+      "title": "Fancier Output Formatting",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "Input and Formatted Output Construct",
+  "official_syntax": "print(f\"Text {variable}\")",
+  "explanation_simple": "f-strings allow you to insert variables directly inside a sentence by placing curly brackets around their names.",
+  "explanation_technical": "F-strings (formatted string literals) are evaluated at runtime by opcode BUILD_STRING, providing fast formatting without str.format() overhead.",
+  "components_or_parameters": [
+    {
+      "name": "expression",
+      "description": "Evaluated target",
+      "is_optional": false
+    }
+  ],
+  "example": "user = \"Atlas\"\nscore = 98\nprint(f\"Player: {user} | Score: {score}\")",
+  "expected_output": "Player: Atlas | Score: 98\n",
+  "output_is_deterministic": true,
+  "common_mistakes": [
+    "mistake-04"
+  ],
+  "version_compatibility": "Python 3.0+",
+  "use_cases": [
+    "Fundamental programming operations"
+  ]
+}

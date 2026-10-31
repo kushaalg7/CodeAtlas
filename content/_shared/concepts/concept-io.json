@@ -1,0 +1,8 @@
+{
+  "id": "concept-io",
+  "name": "Standard Input and Output",
+  "description": "Receiving textual input from user streams and writing structured output to consoles.",
+  "category": "language_fundamentals",
+  "prerequisites": ["concept-syntax"],
+  "related_concepts": ["concept-variables"]
+}

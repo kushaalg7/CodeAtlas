@@ -1,0 +1,13 @@
+{
+  "user_id": "",
+  "language": "python",
+  "version": "3.12",
+  "current_concept_ids": "not_an_array",
+  "quiz_results": [
+    {
+      "quiz_id": "quiz-1",
+      "correct": "not_boolean"
+    }
+  ],
+  "mastery_snapshot": "invalid_mastery"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "syntax-for-loop",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-06-loops",
+  "level": "expert_wizard",
+  "prerequisites": [],
+  "related_concepts": [],
+  "doc_references": [],
+  "name": "for loop",
+  "official_syntax": "for x in y:",
+  "explanation_simple": "loops",
+  "explanation_technical": "iteration",
+  "components_or_parameters": [],
+  "example": "for x in range(1): pass",
+  "expected_output": "",
+  "output_is_deterministic": "not_a_boolean",
+  "common_mistakes": [],
+  "version_compatibility": "all",
+  "use_cases": []
+}

@@ -1,0 +1,7 @@
+{
+  "language": "go",
+  "versions_supported": ["1.21", "1.22"],
+  "tier": "Tier C",
+  "doc_base_urls": ["https://go.dev/doc/"],
+  "maintainers": ["codemind-team@example.com"]
+}

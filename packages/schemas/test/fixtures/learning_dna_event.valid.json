@@ -1,0 +1,15 @@
+{
+  "event_id": "evt-81203",
+  "user_id": "user-4819",
+  "language": "python",
+  "timestamp": "2026-10-30T11:30:00Z",
+  "event_type": "quiz_answered",
+  "payload": {
+    "quiz_id": "quiz-predict-output-while",
+    "concept_tags": ["concept-while-loop"],
+    "correctness": true,
+    "time_ms": 12400,
+    "hints_used": 0,
+    "misconception_id": null
+  }
+}

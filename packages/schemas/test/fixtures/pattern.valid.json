@@ -1,0 +1,36 @@
+{
+  "id": "pattern-counter",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-06-loops",
+  "level": "beginner",
+  "prerequisites": ["python-02-variables-and-types", "python-06-loops"],
+  "related_concepts": ["concept-iteration", "concept-accumulation"],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html",
+      "title": "Control Flow Tools",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "pattern_id": "pattern-counter",
+  "name": "Counter Loop Pattern",
+  "problem_solved": "Counting the occurrences of elements matching a specific condition in an iterable.",
+  "when_to_recognize": ["How many items meet condition X?", "Count occurrences of target"],
+  "conceptual_explanation": "Initializes an integer count at zero, iterates through items, and increments by one upon each match.",
+  "complexity": {
+    "time": "O(N)",
+    "space": "O(1)",
+    "justification": "Visits each element in the sequence once while maintaining a single integer register."
+  },
+  "variants": ["Dictionary-based multi-counter", "collections.Counter"],
+  "common_pitfalls": ["Off-by-one errors", "Forgetting to initialize counter before the loop"],
+  "exercise_links": ["exercise-count-evens"],
+  "leetcode_links": ["leetcode-1342"]
+}

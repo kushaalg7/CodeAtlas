@@ -1,0 +1,8 @@
+{
+  "id": "concept-variables",
+  "name": "Variables and Assignment",
+  "description": "Naming and storing references to memory values for later retrieval and manipulation.",
+  "category": "language_fundamentals",
+  "prerequisites": ["concept-syntax"],
+  "related_concepts": ["concept-types", "concept-variable-scope"]
+}

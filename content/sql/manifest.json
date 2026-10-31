@@ -1,0 +1,7 @@
+{
+  "language": "sql",
+  "versions_supported": ["SQL:2016", "SQLite 3.45"],
+  "tier": "Tier B",
+  "doc_base_urls": ["https://sqlite.org/docs.html"],
+  "maintainers": ["codemind-team@example.com"]
+}

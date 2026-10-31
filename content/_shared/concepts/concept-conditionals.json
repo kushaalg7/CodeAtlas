@@ -1,0 +1,8 @@
+{
+  "id": "concept-conditionals",
+  "name": "Conditional Branching",
+  "description": "Directing execution flow along different paths based on truthiness of boolean expressions.",
+  "category": "control_flow",
+  "prerequisites": ["concept-operators"],
+  "related_concepts": ["concept-iteration"]
+}

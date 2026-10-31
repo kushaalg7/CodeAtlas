@@ -1,0 +1,88 @@
+{
+  "id": "python-01-syntax-and-execution",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-01-syntax-and-execution",
+  "level": "beginner",
+  "prerequisites": [],
+  "related_concepts": [
+    "concept-syntax"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/introduction.html",
+      "title": "An Informal Introduction to Python",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Syntax and Running Code",
+  "learning_objectives": [
+    "You can write valid Python statements without syntax errors",
+    "You can explain the purpose of indentation blocks in Python"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What is the key principle behind Syntax and Running Code?",
+      "options": [
+        "Follow Python syntax and semantics",
+        "Ignore errors",
+        "Use random spaces"
+      ],
+      "correct_index": 0,
+      "explanation": "Python requires adhering to clear lexical and semantic rules."
+    }
+  ],
+  "explanation_simple": "Python is a computer language designed to read like clean English. Instead of curly braces, it uses spaces called indentation to group commands together.",
+  "explanation_technical": "CPython parses source code into an abstract syntax tree (AST), compiles it to bytecode (.pyc), and executes it inside the CPython stack-based virtual machine.",
+  "syntax": "statement\nstatement",
+  "worked_examples": [
+    {
+      "id": "we-01",
+      "title": "Printing a message",
+      "code": "print(\"Hello from Code Atlas!\")",
+      "expected_output": "Hello from Code Atlas!\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Executes the demonstrated concept."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart LR\n A[Python Code]:::progress --> B[Bytecode]:::available --> C[Virtual Machine]:::mastered",
+    "alt_text": "Diagram of source code compiling to bytecode and running on the VM",
+    "concept_tags": [
+      "concept-syntax"
+    ]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "Predict the output of: print(\"Hello from Code Atlas!\")",
+      "code": "print(\"Hello from Code Atlas!\")",
+      "expected_output": "Hello from Code Atlas!\n",
+      "explanation": "Executes according to language rules."
+    }
+  ],
+  "common_mistake_ids": [
+    "mistake-01"
+  ],
+  "practice_exercise_ids": [
+    "exercise-01"
+  ],
+  "quiz_ids": [
+    "quiz-01"
+  ],
+  "summary": "Python executes code top-to-bottom and requires uniform 4-space indentation for structural blocks.",
+  "what_to_learn_next": [
+    "python-02-variables-and-types"
+  ]
+}

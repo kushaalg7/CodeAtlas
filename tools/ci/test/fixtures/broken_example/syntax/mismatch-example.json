@@ -1,0 +1,32 @@
+{
+  "id": "syntax-mismatch-example",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-01-syntax",
+  "level": "beginner",
+  "prerequisites": [],
+  "related_concepts": ["concept-output"],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3.12/",
+      "title": "Docs",
+      "source_type": "official_docs"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "name": "mismatch",
+  "official_syntax": "print(x)",
+  "explanation_simple": "test",
+  "explanation_technical": "test",
+  "components_or_parameters": [],
+  "example": "print(40 + 2)",
+  "expected_output": "999\n",
+  "output_is_deterministic": true,
+  "common_mistakes": [],
+  "version_compatibility": "3.0+",
+  "use_cases": ["test"]
+}

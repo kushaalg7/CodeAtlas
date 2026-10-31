@@ -1,0 +1,8 @@
+{
+  "id": "concept-functions",
+  "name": "Functions and Subroutines",
+  "description": "Encapsulating parameterized reusable blocks of code that accept arguments and return values.",
+  "category": "modular_design",
+  "prerequisites": ["concept-iteration"],
+  "related_concepts": ["concept-variable-scope"]
+}

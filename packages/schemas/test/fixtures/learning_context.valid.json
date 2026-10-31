@@ -1,0 +1,21 @@
+{
+  "user_id": "user-4819",
+  "language": "python",
+  "version": "3.12",
+  "current_lesson_id": "python-06-loops",
+  "current_concept_ids": ["concept-iteration", "concept-while-loop"],
+  "recent_errors": ["TabError: inconsistent use of tabs and spaces"],
+  "quiz_results": [
+    {
+      "quiz_id": "quiz-predict-output-while",
+      "correct": true,
+      "hints_used": 0,
+      "time_spent_ms": 12400
+    }
+  ],
+  "mastery_snapshot": {
+    "concept-iteration": 0.85,
+    "concept-while-loop": 0.72
+  },
+  "trace_session_id": "trace-sess-99"
+}

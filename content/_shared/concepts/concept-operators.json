@@ -1,0 +1,8 @@
+{
+  "id": "concept-operators",
+  "name": "Operators and Expressions",
+  "description": "Symbols performing computations, comparisons, or logical operations on operands.",
+  "category": "language_fundamentals",
+  "prerequisites": ["concept-types"],
+  "related_concepts": ["concept-conditionals"]
+}

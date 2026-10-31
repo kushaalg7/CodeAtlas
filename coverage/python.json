@@ -1,0 +1,16 @@
+{
+  "language": "python",
+  "toolchain_version": "Python 3.14.10",
+  "generated_at": "2026-10-30T10:38:15.505Z",
+  "topics_written": 8,
+  "topics_verified": 8,
+  "topics_reviewed": 0,
+  "syntax_constructs_count": 8,
+  "mistakes_count": 8,
+  "exercises_count": 8,
+  "quizzes_count": 8,
+  "examples_total": 16,
+  "examples_verified": 16,
+  "verification_rate": 100,
+  "ci_passed": true
+}

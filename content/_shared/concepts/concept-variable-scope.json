@@ -1,0 +1,8 @@
+{
+  "id": "concept-variable-scope",
+  "name": "Scope and Namespaces",
+  "description": "Rules governing visibility, lifetime, and resolution of variable names (LEGB in Python).",
+  "category": "modular_design",
+  "prerequisites": ["concept-functions"],
+  "related_concepts": ["concept-variables"]
+}

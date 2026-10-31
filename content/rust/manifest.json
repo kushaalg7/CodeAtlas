@@ -1,0 +1,7 @@
+{
+  "language": "rust",
+  "versions_supported": ["2021 Edition", "1.75+"],
+  "tier": "Tier C",
+  "doc_base_urls": ["https://doc.rust-lang.org/stable/reference/"],
+  "maintainers": ["codemind-team@example.com"]
+}

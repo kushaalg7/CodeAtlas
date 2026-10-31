@@ -1,0 +1,10 @@
+{
+  "id": "concept-iteration",
+  "name": "Iteration and Repetition",
+  "description": "Executing a sequence of instructions repeatedly based on a collection or boolean condition.",
+  "category": "control_flow",
+  "prerequisites": ["concept-boolean-logic", "concept-variables"],
+  "related_concepts": ["concept-recursion", "concept-generators"],
+  "contrasts_with": ["concept-recursion"],
+  "commonly_confused_with": ["concept-recursion"]
+}

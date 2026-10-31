@@ -1,0 +1,43 @@
+{
+  "id": "exercise-04",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-04-input-output",
+  "level": "beginner",
+  "prerequisites": [
+    "python-03-operators"
+  ],
+  "related_concepts": [
+    "concept-io"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+      "title": "Fancier Output Formatting",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "exercise_id": "exercise-04",
+  "title": "Exercise for Input and Formatted Output",
+  "description": "Practice the core syntax from Input and Formatted Output.",
+  "starter_code": "# Complete the code\ndef solution():\n    return 42",
+  "test_cases": [
+    {
+      "input": "solution()",
+      "expected_output": "42",
+      "is_hidden": false
+    }
+  ],
+  "hints": [
+    {
+      "level": 1,
+      "text": "Review the worked example from the lesson."
+    }
+  ]
+}

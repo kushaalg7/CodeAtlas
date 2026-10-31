@@ -1,0 +1,8 @@
+{
+  "id": "concept-iteration",
+  "name": "Iteration and Loops",
+  "description": "Repeating blocks of code over counter ranges or items in iterable sequences.",
+  "category": "control_flow",
+  "prerequisites": ["concept-conditionals"],
+  "related_concepts": ["concept-functions"]
+}

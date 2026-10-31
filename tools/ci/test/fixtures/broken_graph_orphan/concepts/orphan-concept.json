@@ -1,0 +1,8 @@
+{
+  "id": "concept-lonely-orphan",
+  "name": "Lonely Orphan Concept",
+  "description": "Completely disconnected from the knowledge DAG.",
+  "category": "orphaned",
+  "prerequisites": [],
+  "related_concepts": []
+}

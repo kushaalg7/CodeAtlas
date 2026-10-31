@@ -1,0 +1,8 @@
+{
+  "id": "concept-syntax",
+  "name": "Program Syntax and Statements",
+  "description": "The lexical structure and formatting rules defining valid instructions in a language.",
+  "category": "language_fundamentals",
+  "prerequisites": [],
+  "related_concepts": ["concept-variables", "concept-io"]
+}

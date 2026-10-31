@@ -1,0 +1,90 @@
+{
+  "id": "python-05-conditions",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-05-conditions",
+  "level": "beginner",
+  "prerequisites": [
+    "python-03-operators"
+  ],
+  "related_concepts": [
+    "concept-conditionals"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/controlflow.html#if-statements",
+      "title": "if Statements",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Conditional Branching: if, elif, else",
+  "learning_objectives": [
+    "You can write branching logic using if, elif, and else blocks",
+    "You can predict execution paths through nested conditions"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What is the key principle behind Conditional Branching: if, elif, else?",
+      "options": [
+        "Follow Python syntax and semantics",
+        "Ignore errors",
+        "Use random spaces"
+      ],
+      "correct_index": 0,
+      "explanation": "Python requires adhering to clear lexical and semantic rules."
+    }
+  ],
+  "explanation_simple": "Conditions are fork in the road decisions. If condition A is true, go down path A. If not, check path B with elif, or take the default else path.",
+  "explanation_technical": "CPython implements branching via POP_JUMP_IF_FALSE opcodes, jumping instruction pointers based on PyObject truth value.",
+  "syntax": "if condition:\n    suite\nelif other_condition:\n    suite\nelse:\n    suite",
+  "worked_examples": [
+    {
+      "id": "we-05",
+      "title": "Checking student grades with elif",
+      "code": "score = 85\nif score >= 90:\n    print(\"Grade A\")\nelif score >= 80:\n    print(\"Grade B\")\nelse:\n    print(\"Grade C\")",
+      "expected_output": "Grade B\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Executes the demonstrated concept."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart TD\n Cond{score >= 90}:::progress -- No --> Cond2{score >= 80}:::progress\n Cond2 -- Yes --> BranchB[Grade B]:::mastered",
+    "alt_text": "Decision tree for grade evaluation",
+    "concept_tags": [
+      "concept-conditionals"
+    ]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "Predict the output of: score = 85",
+      "code": "score = 85\nif score >= 90:\n    print(\"Grade A\")\nelif score >= 80:\n    print(\"Grade B\")\nelse:\n    print(\"Grade C\")",
+      "expected_output": "Grade B\n",
+      "explanation": "Executes according to language rules."
+    }
+  ],
+  "common_mistake_ids": [
+    "mistake-05"
+  ],
+  "practice_exercise_ids": [
+    "exercise-05"
+  ],
+  "quiz_ids": [
+    "quiz-05"
+  ],
+  "summary": "if, elif, and else execute mutually exclusive suites based on boolean expressions.",
+  "what_to_learn_next": [
+    "python-06-loops"
+  ]
+}

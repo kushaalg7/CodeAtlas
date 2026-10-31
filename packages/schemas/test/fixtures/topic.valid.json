@@ -1,0 +1,72 @@
+{
+  "id": "python-01-syntax-and-execution",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-01-syntax-and-execution",
+  "level": "beginner",
+  "prerequisites": [],
+  "related_concepts": ["concept-syntax", "concept-execution"],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/introduction.html",
+      "title": "Python 3 Tutorial: An Informal Introduction",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Syntax and Running Code",
+  "learning_objectives": [
+    "You can write valid Python statements without syntax errors",
+    "You can predict the output of basic print expressions"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What happens when you run code with indentation errors in Python?",
+      "options": ["It runs anyway", "Python raises an IndentationError before execution", "It prints a warning"],
+      "correct_index": 1,
+      "explanation": "Python parses indentation during compilation, raising an IndentationError if blocks are malformed."
+    }
+  ],
+  "explanation_simple": "Python reads instructions line by line, using indentation to know which lines belong together.",
+  "explanation_technical": "CPython parses source code into an abstract syntax tree and compiles it to bytecode before execution in the virtual machine.",
+  "syntax": "statement\nstatement",
+  "worked_examples": [
+    {
+      "id": "ex-01-hello",
+      "title": "Printing a greeting",
+      "code": "print('Hello, CODE ATLAS!')",
+      "expected_output": "Hello, CODE ATLAS!\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Calls the built-in print function with a string argument."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart LR\n  Source[Python Source] --> Compiler[Bytecode] --> VM[CPython VM]",
+    "alt_text": "Flowchart showing source code compiled to bytecode and executed by the VM",
+    "concept_tags": ["concept-execution"]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "What does print(1 + 2) output?",
+      "code": "print(1 + 2)",
+      "expected_output": "3\n",
+      "explanation": "1 + 2 is evaluated first to 3, which is then printed."
+    }
+  ],
+  "common_mistake_ids": ["mistake-indentation-tab-space"],
+  "practice_exercise_ids": ["exercise-print-greeting"],
+  "quiz_ids": ["quiz-python-syntax-01"],
+  "summary": "Python executes statements in order and enforces structure using 4-space indentation.",
+  "what_to_learn_next": ["python-02-variables-and-types"]
+}

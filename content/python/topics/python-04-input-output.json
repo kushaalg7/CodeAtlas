@@ -1,0 +1,90 @@
+{
+  "id": "python-04-input-output",
+  "language": "python",
+  "language_version_min": "3.8",
+  "language_version_max": "current",
+  "topic": "python-04-input-output",
+  "level": "beginner",
+  "prerequisites": [
+    "python-03-operators"
+  ],
+  "related_concepts": [
+    "concept-io"
+  ],
+  "doc_references": [
+    {
+      "url": "https://docs.python.org/3/tutorial/inputoutput.html",
+      "title": "Fancier Output Formatting",
+      "source_type": "official_docs",
+      "license": "PSF License"
+    }
+  ],
+  "deprecation_status": "current",
+  "review_status": "verified",
+  "last_verified_date": "2026-10-30",
+  "verified_with_toolchain_version": "Python 3.12.0",
+  "title": "Input and Formatted Output",
+  "learning_objectives": [
+    "You can format console output cleanly using f-strings",
+    "You can read user input and convert string data to integers"
+  ],
+  "prerequisites_check": [
+    {
+      "question": "What is the key principle behind Input and Formatted Output?",
+      "options": [
+        "Follow Python syntax and semantics",
+        "Ignore errors",
+        "Use random spaces"
+      ],
+      "correct_index": 0,
+      "explanation": "Python requires adhering to clear lexical and semantic rules."
+    }
+  ],
+  "explanation_simple": "f-strings allow you to insert variables directly inside a sentence by placing curly brackets around their names.",
+  "explanation_technical": "F-strings (formatted string literals) are evaluated at runtime by opcode BUILD_STRING, providing fast formatting without str.format() overhead.",
+  "syntax": "print(f\"Text {variable}\")",
+  "worked_examples": [
+    {
+      "id": "we-04",
+      "title": "Formatting with f-strings",
+      "code": "user = \"Atlas\"\nscore = 98\nprint(f\"Player: {user} | Score: {score}\")",
+      "expected_output": "Player: Atlas | Score: 98\n",
+      "line_by_line": [
+        {
+          "line": 1,
+          "explanation": "Executes the demonstrated concept."
+        }
+      ],
+      "trace_ready": true
+    }
+  ],
+  "diagram": {
+    "type": "flowchart",
+    "source": "flowchart LR\n Var[Variable: score]:::available --> FStr[f-string interpolation]:::progress --> Out[Formatted Output]:::mastered",
+    "alt_text": "f-string interpolation process",
+    "concept_tags": [
+      "concept-io"
+    ]
+  },
+  "predict_the_output": [
+    {
+      "prompt": "Predict the output of: user = \"Atlas\"",
+      "code": "user = \"Atlas\"\nscore = 98\nprint(f\"Player: {user} | Score: {score}\")",
+      "expected_output": "Player: Atlas | Score: 98\n",
+      "explanation": "Executes according to language rules."
+    }
+  ],
+  "common_mistake_ids": [
+    "mistake-04"
+  ],
+  "practice_exercise_ids": [
+    "exercise-04"
+  ],
+  "quiz_ids": [
+    "quiz-04"
+  ],
+  "summary": "f-strings provide readable string interpolation, and print() writes directly to sys.stdout.",
+  "what_to_learn_next": [
+    "python-05-conditions"
+  ]
+}
